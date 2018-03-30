@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Promises using $q</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="promiseCtrl">
+	<h3>{{data.title}}</h3>
+<script type="text/javascript">
+	
+	var app = angular.module('myApp', []);
+	app.controller('promiseCtrl', ['promService', '$scope', function(promService, $scope){
+		$scope.fetchUserData = function(){
+			promService.getUserDetails()
+			.then(function(resp){
+				$scope.data = resp.data;
+				console.log($scope.data, '$scope.data');
+			}, function(failure){
+				$scope.data = failure;
+				console.log($scope.data, '$scope.data');
+			})
+		}
+
+		$scope.fetchUserData();
+
+	}])
+</script>
+<script type="text/javascript" src="promiseService.js"></script>
+</body>
+</html>
