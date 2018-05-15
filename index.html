@@ -14,7 +14,7 @@
 			promService.getUserDetails()
 			.then(function(resp){
 				$scope.data = resp.data;
-				console.log($scope.data, '$scope.data');
+				console.log($scope.data.main, '$scope.data');
 			}, function(failure){
 				$scope.data = failure;
 				console.log($scope.data, '$scope.data');

@@ -1,0 +1,1 @@
+var routerModule = angular.module('RouterModule', ['ui.router']);
