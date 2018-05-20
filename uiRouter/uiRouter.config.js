@@ -25,11 +25,22 @@ routerModule.config(['$stateProvider', '$urlRouterProvider', function($stateProv
 		.state('home', {
 			url: '/',
 			template: '<strong>You are at home</strong>'
-		});
+		})
 		// .state('noroute', {
 		// 	url: '*path',
 		// 	template: '<strong>No route available..</strong>'
 		// });
 
+		.state('newView', {
+			url: '/test',
+			views: {
+				'':{
+					template: '<bold>with blank view</bold>'
+				},
+				'test':{
+					template:'<bold>Test view</bold>'
+				}
+			}
+		});
 		$urlRouterProvider.otherwise('/');
 }])		

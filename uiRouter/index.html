@@ -42,10 +42,12 @@
 				<!-- <li><a ui-sref="second()">go to second page</a></li> -->
 				<li><a ui-sref="second({a: 10, b:20})">go to second page</a></li>  <!-- passing params  -->
 				<li><a ui-sref="third({b: 10})">go to third page</a></li>
+				<li><a ui-sref="newView()">Test</a></li>
 			</ul>
 		</div>
 		<div class="col-sm-9 well">
 			<div ui-view></div>
+			<div ui-view="test"></div>
 		</div>
 	</div>
 
