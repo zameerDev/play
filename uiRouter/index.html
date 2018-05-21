@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>UI Router</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>
+</head>
+<body ng-app="RouterModule">
+
+	<!-- Using routes -->
+
+	<!-- <a href="#/">Home</a> |
+	<a href="#/first-page">go to first page</a> |
+	<a href="#/second-page">go to second page</a> -->
+
+	<!-- Using states -->
+
+	<!-- <a ui-sref="home()">Home</a> |
+	<a ui-sref="first()">go to first page</a>|
+	<a ui-sref="second()">go to second page</a>
+
+
+	<div ui-view></div> -->
+
+	<div class="row">
+		<div class="col-sm-12 well">
+			Header | <a ui-sref="home()">Home</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-3 well">
+			<ul>
+				<!-- <li><a href="#/second-page/demo/20">go to second page</a></li>  as param does not satisfy regular expression, it is redirected to default route-->
+				<li><a ui-sref="first()">go to first page</a></li>
+				<!-- <li><a ui-sref="second()">go to second page</a></li> -->
+				<li><a ui-sref="second({a: 10, b:20})">go to second page</a></li>  <!-- passing params  -->
+				<li><a ui-sref="third({b: 10})">go to third page</a></li>
+				<li><a ui-sref="newView()">Test</a></li>
+			</ul>
+		</div>
+		<div class="col-sm-9 well">
+			<div ui-view></div>
+			<div ui-view="test"></div>
+		</div>
+	</div>
+
+
+	<script src="app.js"></script>
+	<script src="uiRouter.config.js"></script>
+	<script src="/controllers/firstPage.controller.js"></script>
+	<script src="/controllers/secondPage.controller.js"></script>
+	<script src="/controllers/thirdPage.controller.js"></script>
+</body>
+</html>
