@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body ng-app="myApp">
+
+
+    <div ng-controller="myCtrl">
+        <div>{{weather}}</div><br>
+        <button ng-click="getWeather()">Get weather</button>
+    </div>
+
+    <script>
+        var app = angular.module('myApp', ['newApp']);
+        app.controller('myCtrl', myCtrl);
+        myCtrl.$inject = [
+            '$scope',
+            'MyService'
+        ];
+
+        function myCtrl(
+            $scope,
+            MyService
+        ) {
+            $scope.name = 'zameer';
+            $scope.getWeather = function(){
+                MyService.doSomething().then(function(result){
+                    $scope.weather = result;
+                },function(error){
+                    console.log(error)
+                });
+            }
+        }
+    </script>
+    <script src="app.js"></script>
+</body>
+
+</html>
